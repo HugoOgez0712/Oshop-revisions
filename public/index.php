@@ -3,6 +3,7 @@
 // On importe les controllers dont on pense avoir besoin
 
 require_once __DIR__.'/../app/controllers/MainController.php';
+require_once __DIR__.'/../app/controllers/CatalogController.php';
 /* require_once __DIR__.'/controllers/CatalogController'; */
 
 $routes = [
@@ -10,7 +11,12 @@ $routes = [
  '/' => [
      'controller' => 'MainController',
      'method' => 'homepage'
- ]
+ ],
+
+ '/category' => [
+    'controller' => 'CatalogController',
+    'method' => 'category'
+]
 ];
 
 // en fonction de l'URL de la requête, on trouve la bonne
@@ -34,3 +40,5 @@ $controller = new $controllerName();
 //$controller
  
 $controller->$methodName();
+
+// il faut que Apache soit au courant que sur public, 
